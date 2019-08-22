@@ -1,14 +1,19 @@
 import React from "react";
+import ControlPanel from "../ControlPanel/ControlPanel";
 
 const Player = ({ video: { id: { videoId } = {} } = {} }) => {
-  const id = "DlJy7HQMgSI";
-
-  const [firstVideoLoaded, setFirstVideoLoaded] = React.useState(false);
-  //   const [player, setPlayer] = React.useState(null);
+  const [ready, setReady] = React.useState(false);
+  const [playerState, setPlayerState] = React.useState(false);
   const playerRef = React.useRef(null);
-  function onPlayerReady(event) {
+
+  const onPlayerReady = event => {
     event.target.playVideo();
-  }
+    setReady(true);
+  };
+
+  const onPlayerStateChange = event => {
+    setPlayerState(event.data);
+  };
 
   React.useEffect(() => {
     const loadVideo = () => {
@@ -19,14 +24,18 @@ const Player = ({ video: { id: { videoId } = {} } = {} }) => {
         height: "100%",
         width: "100%",
         events: {
-          onReady: onPlayerReady
+          onReady: onPlayerReady,
+          onStateChange: onPlayerStateChange
+        },
+        playerVars: {
+          controls: 0,
+          rel: 0,
+          fs: 0
         }
       });
-
-      setFirstVideoLoaded(true);
     };
 
-    if (firstVideoLoaded) {
+    if (ready) {
       playerRef.current.loadVideoById(videoId);
     } else if (!window.YT) {
       // If not, load the script asynchronously
@@ -44,7 +53,21 @@ const Player = ({ video: { id: { videoId } = {} } = {} }) => {
     }
   }, [videoId]);
 
-  return <div className="player" id={"player"} />;
+  return (
+    <div>
+      <div className="player" id={"player"} />
+      {ready && (
+        <ControlPanel
+          state={playerState}
+          isMuted={() => playerRef.current.isMuted()}
+          play={() => playerRef.current.playVideo()}
+          pause={() => playerRef.current.pauseVideo()}
+          mute={() => playerRef.current.mute()}
+          unMute={() => playerRef.current.unMute()}
+        />
+      )}
+    </div>
+  );
 };
 
 export default Player;
