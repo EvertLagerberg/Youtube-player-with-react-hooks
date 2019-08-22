@@ -31,5 +31,4 @@ function App() {
   );
 }
 
-export defau
-t App;
+export default App;
