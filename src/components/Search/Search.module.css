@@ -1,0 +1,14 @@
+.field {
+  width: 90%;
+  border-radius: 5px 0px 0px 5px;
+  border: 1px solid #dbdbdb;
+  font-size: 14px;
+}
+
+.button {
+  width: 10%;
+  cursor: pointer;
+  border-radius: 0px 5px 5px 0px;
+  background-color: coral;
+  border-left: none;
+}
