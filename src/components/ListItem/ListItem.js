@@ -11,7 +11,7 @@ const ListItem = ({
   onClick
 }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} onClick={onClick}>
       <img src={thumbnail.url} className={styles.thumbnail} alt="thumbnail" />
       <div className={styles.info_container}>
         <div className={styles.title}>{htmlDecode(title)}</div>

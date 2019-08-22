@@ -4,25 +4,20 @@ import { search } from "../../api/youtubeApi";
 
 import styles from "./List.module.css";
 
-const List = ({ searchQuery }) => {
+const List = ({ searchQuery, setSelectedVideo }) => {
   const [videos, setVideos] = React.useState(null);
-  const [selectedVideo, setSelectedVideo] = React.useState(null);
 
   React.useEffect(() => {
-    search(searchQuery).then(result => setVideos(result.items));
+    search(searchQuery).then(result => {
+      setVideos(result.items);
+      setSelectedVideo(result.items[0]);
+    });
 
     return () => setVideos(null);
   }, [searchQuery]);
 
   return (
     <div className={styles.container}>
-      {selectedVideo && (
-        <div>
-          <h3>Currentvideo</h3>
-          <div>{selectedVideo.id.videoId}</div>
-        </div>
-      )}
-
       <div>
         {videos === null ? (
           <div>Loading...</div>
