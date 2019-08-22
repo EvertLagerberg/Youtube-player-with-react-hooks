@@ -19,11 +19,17 @@ function App() {
           {selectedVideo && <VideoDetails data={selectedVideo.snippet} />}
         </div>
         <div className="secondary-content">
-          <List searchQuery={searchQuery} setSelectedVideo={setSelectedVideo} />
+          {searchQuery && (
+            <List
+              searchQuery={searchQuery}
+              setSelectedVideo={setSelectedVideo}
+            />
+          )}
         </div>
       </div>
     </div>
   );
 }
 
-export default App;
+export defau
+t App;

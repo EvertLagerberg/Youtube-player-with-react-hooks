@@ -36,8 +36,8 @@ const Player = ({ video: { id: { videoId } = {} } = {} }) => {
       });
     };
 
-    if (ready) {
-      playerRef.current.loadVideoById(videoId);
+    if (ready && videoId) {
+      playerRef.current.cueVideoById(videoId);
     } else if (!window.YT) {
       // If not, load the script asynchronously
       const tag = document.createElement("script");

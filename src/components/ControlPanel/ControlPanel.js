@@ -14,7 +14,7 @@ const ControlPanel = ({ state, play, pause, isMuted, mute, unMute }) => {
     // 5 – video cued
     if (state === 1) {
       pause();
-    } else if (state === 2) {
+    } else if (state === 2 || state === 5) {
       play();
     } else {
       // do nothing
@@ -30,7 +30,7 @@ const ControlPanel = ({ state, play, pause, isMuted, mute, unMute }) => {
       setSound(false);
     }
   };
-  const isDisabled = state !== 1 && state !== 2;
+  const isDisabled = state !== 1 && state !== 2 && state !== 5;
   return (
     <div className={styles.container}>
       <button
