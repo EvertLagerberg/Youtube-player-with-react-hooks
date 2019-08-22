@@ -1,26 +1,19 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import Button from "./components/Button/Button";
-// import VideoIframe from "./components/VideoIframe/VideoIframe";
-import VideoItemList from "./components/VideoItemList/VideoItemList";
-import { search } from "./api/youtubeApi";
+import List from "./components/List/List";
+import Player from "./components/Player/Player";
 
 function App() {
-  // const executeSearch = async () => {
-  //   const result = await search("manatee");
-  //   console.log(result);
-  //   console.log("result");
-  //   return result;
-  // };
-
-  // const response = executeSearch();
-
-  // console.log("here we are", response);
   return (
     <div className="App">
-      <Button />
-      <VideoItemList searchQuery="manatee" />
+      <div className="main-container">
+        <div className="primary-content-container">
+          <Player />
+        </div>
+        <div className="secondary-content-container">
+          <List searchQuery="manatee" />
+        </div>
+      </div>
     </div>
   );
 }
