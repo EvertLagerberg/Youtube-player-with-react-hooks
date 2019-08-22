@@ -10,10 +10,10 @@ function App() {
     <div className="App">
       <div className="main-container">
         <div className="primary-content-container">
-          <Player video={selectedVideo} />
+          {selectedVideo && <Player video={selectedVideo} />}
         </div>
         <div className="secondary-content-container">
-          <List searchQuery="manatee" setSelectedVideo={setSelectedVideo} />
+          <List searchQuery="sailing" setSelectedVideo={setSelectedVideo} />
         </div>
       </div>
     </div>
