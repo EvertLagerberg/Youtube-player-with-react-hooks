@@ -4,7 +4,15 @@ import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 
 import styles from "./ControlPanel.module.css";
 
-const ControlPanel = ({ state, play, pause, isMuted, mute, unMute }) => {
+const ControlPanel = ({
+  state,
+  play,
+  pause,
+  isMuted,
+  mute,
+  unMute,
+  children
+}) => {
   const [sound, setSound] = React.useState(true);
   const tooglePlayback = () => {
     // -1 – unstarted
@@ -34,6 +42,7 @@ const ControlPanel = ({ state, play, pause, isMuted, mute, unMute }) => {
   const isDisabled = state !== 1 && state !== 2 && state !== 5;
   return (
     <div className={styles.container}>
+      <div>{children}</div>
       <button
         disabled={isDisabled}
         className={styles.playButton}

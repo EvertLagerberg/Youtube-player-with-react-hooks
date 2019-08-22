@@ -19,19 +19,17 @@ const List = ({ searchQuery, setSelectedVideo }) => {
 
   return (
     <div className={styles.container}>
-      <div>
-        {videos === null ? (
-          <div>Loading...</div>
-        ) : (
-          videos.map(video => (
-            <ListItem
-              key={video.id.videoId}
-              data={video.snippet}
-              onClick={() => setSelectedVideo(video)}
-            />
-          ))
-        )}
-      </div>
+      {videos === null ? (
+        <div>Loading...</div>
+      ) : (
+        videos.map(video => (
+          <ListItem
+            key={video.id.videoId}
+            data={video.snippet}
+            onClick={() => setSelectedVideo(video)}
+          />
+        ))
+      )}
     </div>
   );
 };
