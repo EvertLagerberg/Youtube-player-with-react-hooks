@@ -16,6 +16,9 @@
   width: 120px;
   flex-shrink: 0;
 }
+.container {
+  cursor: pointer;
+}
 
 .title {
   font-weight: 600;

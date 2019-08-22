@@ -30,16 +30,21 @@ const ControlPanel = ({ state, play, pause, isMuted, mute, unMute }) => {
       setSound(false);
     }
   };
-
-  if (state !== 1 && state !== 2) {
-    return <div disabled={true}>Loading...</div>;
-  }
+  const isDisabled = state !== 1 && state !== 2;
   return (
     <div className={styles.container}>
-      <button className={styles.playButton} onClick={() => tooglePlayback()}>
+      <button
+        disabled={isDisabled}
+        className={styles.playButton}
+        onClick={() => tooglePlayback()}
+      >
         {state === 1 ? <FaPause size="20px" /> : <FaPlay size="20px" />}
       </button>
-      <button className={styles.muteButton} onClick={() => toggleMute()}>
+      <button
+        disabled={isDisabled}
+        className={styles.muteButton}
+        onClick={() => toggleMute()}
+      >
         {sound ? (
           <FaVolumeUp size="20px" />
         ) : (

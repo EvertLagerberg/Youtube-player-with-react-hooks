@@ -9,7 +9,6 @@ const Player = ({ video: { id: { videoId } = {} } = {} }) => {
   const playerRef = React.useRef(null);
 
   const onPlayerReady = event => {
-    event.target.playVideo();
     setReady(true);
   };
 
@@ -22,7 +21,6 @@ const Player = ({ video: { id: { videoId } = {} } = {} }) => {
       // the Player object is created uniquely based on the id in props
 
       playerRef.current = new window.YT.Player("player", {
-        videoId,
         height: "100%",
         width: "100%",
         events: {
@@ -30,6 +28,7 @@ const Player = ({ video: { id: { videoId } = {} } = {} }) => {
           onStateChange: onPlayerStateChange
         },
         playerVars: {
+          autoplay: 0,
           controls: 0,
           rel: 0,
           fs: 0

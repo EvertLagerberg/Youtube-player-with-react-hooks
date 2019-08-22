@@ -14,7 +14,7 @@ const List = ({ searchQuery, setSelectedVideo }) => {
     });
 
     return () => setVideos(null);
-  }, [searchQuery]);
+  }, [searchQuery, setSelectedVideo]);
 
   return (
     <div className={styles.container}>

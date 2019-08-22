@@ -9,6 +9,7 @@
 }
 
 .playButton {
+  cursor: pointer;
   border-radius: 25px;
   height: 40px;
   width: 40px;
@@ -17,6 +18,7 @@
 }
 
 .muteButton {
+  cursor: pointer;
   border-radius: 25px;
   height: 40px;
   width: 40px;
