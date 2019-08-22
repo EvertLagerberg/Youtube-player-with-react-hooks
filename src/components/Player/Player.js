@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ControlPanel from "../ControlPanel/ControlPanel";
 
 import styles from "./Player.module.css";
 
-const Player = ({ video: { id: { videoId } = {} } = {} }) => {
+const Player = ({ videoId }) => {
   const [ready, setReady] = React.useState(false);
   const [playerState, setPlayerState] = React.useState(false);
   const playerRef = React.useRef(null);
@@ -57,7 +58,7 @@ const Player = ({ video: { id: { videoId } = {} } = {} }) => {
   return (
     <div className={styles.container}>
       <div className="player" id={"player"} />
-      {ready && (
+      {ready && playerState && (
         <ControlPanel
           state={playerState}
           isMuted={() => playerRef.current.isMuted()}
@@ -69,6 +70,10 @@ const Player = ({ video: { id: { videoId } = {} } = {} }) => {
       )}
     </div>
   );
+};
+
+Player.propTypes = {
+  videoId: PropTypes.string.isRequired
 };
 
 export default Player;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FaSearch } from "react-icons/fa";
 import styles from "./Search.module.css";
 
@@ -18,6 +19,10 @@ const Search = ({ onSubmit }) => {
       </button>
     </>
   );
+};
+
+Search.propTypes = {
+  onSubmit: PropTypes.func.isRequired
 };
 
 export default Search;

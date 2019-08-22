@@ -15,8 +15,14 @@ function App() {
       </div>
       <div className="main">
         <div className="primary-content">
-          {selectedVideo && <Player video={selectedVideo} />}
-          {selectedVideo && <VideoDetails data={selectedVideo.snippet} />}
+          {selectedVideo && <Player videoId={selectedVideo.id.videoId} />}
+          {selectedVideo && (
+            <VideoDetails
+              title={selectedVideo.snippet.title}
+              channelTitle={selectedVideo.snippet.channelTitle}
+              description={selectedVideo.snippet.description}
+            />
+          )}
         </div>
         <div className="secondary-content">
           {searchQuery && (

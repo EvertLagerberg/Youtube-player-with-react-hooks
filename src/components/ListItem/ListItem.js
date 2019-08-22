@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { htmlDecode } from "../../utils/utils";
 import styles from "./ListItem.module.css";
 
@@ -21,6 +22,15 @@ const ListItem = ({
   );
 };
 
-ListItem.propTypes = {};
+ListItem.propTypes = {
+  data: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    channelTitle: PropTypes.string.isRequired,
+    thumbnails: PropTypes.shape({
+      default: PropTypes.object
+    })
+  }),
+  onClick: PropTypes.func.isRequired
+};
 
 export default ListItem;

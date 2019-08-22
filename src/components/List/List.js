@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ListItem from "../ListItem/ListItem";
 import { search } from "../../api/youtubeApi";
 
@@ -33,6 +34,11 @@ const List = ({ searchQuery, setSelectedVideo }) => {
       </div>
     </div>
   );
+};
+
+List.propTypes = {
+  searchQuery: PropTypes.string.isRequired,
+  setSelectedVideo: PropTypes.func.isRequired
 };
 
 export default List;

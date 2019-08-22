@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 
 import styles from "./ControlPanel.module.css";
@@ -53,6 +54,15 @@ const ControlPanel = ({ state, play, pause, isMuted, mute, unMute }) => {
       </button>
     </div>
   );
+};
+
+ControlPanel.propTypes = {
+  state: PropTypes.number.isRequired,
+  play: PropTypes.func.isRequired,
+  pause: PropTypes.func.isRequired,
+  mute: PropTypes.func.isRequired,
+  unMute: PropTypes.func.isRequired,
+  isMuted: PropTypes.func.isRequired
 };
 
 export default ControlPanel;
