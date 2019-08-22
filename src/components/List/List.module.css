@@ -2,3 +2,9 @@
   border: 1px solid #dbdbdb;
   margin: 0px 15px;
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 15px 0px;
+  }
+}

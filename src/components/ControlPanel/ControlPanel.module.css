@@ -1,0 +1,25 @@
+.container {
+  height: 45px;
+  width: 100%;
+  opacity: 0.5;
+  border: 1px solid #dbdbdb;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.playButton {
+  border-radius: 25px;
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  border: 1px solid #dbdbdb;
+}
+
+.muteButton {
+  border-radius: 25px;
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  border: 1px solid #dbdbdb;
+}

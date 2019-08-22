@@ -1,6 +1,8 @@
 import React from "react";
 import ControlPanel from "../ControlPanel/ControlPanel";
 
+import styles from "./Player.module.css";
+
 const Player = ({ video: { id: { videoId } = {} } = {} }) => {
   const [ready, setReady] = React.useState(false);
   const [playerState, setPlayerState] = React.useState(false);
@@ -51,10 +53,10 @@ const Player = ({ video: { id: { videoId } = {} } = {} }) => {
       // If script is already there, load the video directly
       loadVideo();
     }
-  }, [videoId]);
+  }, [videoId, ready]);
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className="player" id={"player"} />
       {ready && (
         <ControlPanel

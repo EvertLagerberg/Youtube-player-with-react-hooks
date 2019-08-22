@@ -23,6 +23,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .App {
+    margin: 30px 15px;
+  }
   .primary-content-container,
   .secondary-content-container {
     width: 100%;

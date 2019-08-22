@@ -1,6 +1,8 @@
 import React from "react";
 import { FaPlay, FaPause, FaVolumeMute, FaVolumeUp } from "react-icons/fa";
 
+import styles from "./ControlPanel.module.css";
+
 const ControlPanel = ({ state, play, pause, isMuted, mute, unMute }) => {
   const [sound, setSound] = React.useState(true);
   const tooglePlayback = () => {
@@ -33,12 +35,16 @@ const ControlPanel = ({ state, play, pause, isMuted, mute, unMute }) => {
     return <div disabled={true}>Loading...</div>;
   }
   return (
-    <div>
-      <button onClick={() => tooglePlayback()}>
-        {state === 1 ? <FaPause /> : <FaPlay />}
+    <div className={styles.container}>
+      <button className={styles.playButton} onClick={() => tooglePlayback()}>
+        {state === 1 ? <FaPause size="20px" /> : <FaPlay size="20px" />}
       </button>
-      <button onClick={() => toggleMute()}>
-        {sound ? <FaVolumeUp /> : <FaVolumeMute />}
+      <button className={styles.muteButton} onClick={() => toggleMute()}>
+        {sound ? (
+          <FaVolumeUp size="20px" />
+        ) : (
+          <FaVolumeMute color="red" size="20px" />
+        )}
       </button>
     </div>
   );

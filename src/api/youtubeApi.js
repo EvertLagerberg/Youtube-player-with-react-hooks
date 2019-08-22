@@ -16,16 +16,16 @@ const searchInstance = axios.create({
 
 export async function search(query) {
   try {
-    const { data } = await axios.get("/search", {
-      params: {
-        part: "snippet",
-        maxResults: 10,
-        key: API_KEY2,
-        q: query
-      }
-    });
-    console.log("here", data);
-    return data;
+    // const { data } = await axios.get("/search", {
+    //   params: {
+    //     part: "snippet",
+    //     maxResults: 10,
+    //     key: API_KEY,
+    //     q: query
+    //   }
+    // });
+    // console.log("here", data);
+    return backupJson;
   } catch (error) {
     console.error(error);
     return false;
