@@ -1,8 +1,6 @@
 import axios from "axios";
-import backupJson from "./backupJson";
+// import backupJson from "./backupJson";
 
-const API_KEY = "REMOVED";
-const API_KEY2 = "REMOVED";
 axios.defaults.baseURL = "https://www.googleapis.com/youtube/v3/";
 
 export async function search(query) {
@@ -11,7 +9,7 @@ export async function search(query) {
       params: {
         part: "snippet",
         maxResults: 10,
-        key: API_KEY,
+        key: process.env.REACT_APP_YT_KEY1c,
         q: query,
         type: "video"
       }

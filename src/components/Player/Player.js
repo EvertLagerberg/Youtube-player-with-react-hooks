@@ -53,9 +53,7 @@ const Player = ({ videoId }) => {
       createVideoPlayer();
     }
   }, [videoId, ready]);
-  if (playerState) {
-    console.log(playerRef.current.getCurrentTime());
-  }
+
   return (
     <>
       <div className="player" id={"player"} />
