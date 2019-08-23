@@ -9,7 +9,7 @@ export async function search(query) {
       params: {
         part: "snippet",
         maxResults: 10,
-        key: process.env.REACT_APP_YT_KEY1c,
+        key: process.env.REACT_APP_YT_KEY1,
         q: query,
         type: "video"
       }
